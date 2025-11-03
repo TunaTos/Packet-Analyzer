@@ -1,5 +1,5 @@
+use crate::network::interface::{show_all_interfaces, show_interfaces, show_running_interfaces};
 use std::io::stdin;
-use crate::network::interface::{show_all_interfaces, show_running_interfaces};
 
 pub fn display_menu() {
     println!("\n=================메뉴=================");
@@ -21,8 +21,7 @@ pub fn start() {
 
         match handle_input() {
             Some(1) => {
-                println!("네트워크 인터페이스를 확인합니다");
-                show_running_interfaces();
+                show_interfaces();
             }
             Some(2) => {
                 println!("패킷 캡처를 시작합니다");
