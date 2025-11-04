@@ -117,3 +117,11 @@ pub fn show_vpn_interfaces() {
         })
         .for_each(|interface| print_interface(&interface));
 }
+
+pub fn find_interface_by_name(name: &str) -> Option<NetworkInterface> {
+    let interfaces = datalink::interfaces();
+
+    interfaces
+        .into_iter()
+        .find(|interface| interface.name == name)
+}
